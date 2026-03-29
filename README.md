@@ -123,7 +123,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/qiuzhi2046/Qclaw.git
+git clone https://github.com/fffants/Qclaw.git
 cd Qclaw
 
 # 安装依赖
