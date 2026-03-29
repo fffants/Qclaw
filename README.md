@@ -236,7 +236,7 @@ build/              应用图标与打包资源
 
 
 ### 社区规范
-[社区行为准则](https://e1wb2qdopt6.feishu.cn/wiki/Y1luwaPAnioolOktXtgcMwTUnif)
+[社区行为准则](https://my.feishu.cn/wiki/ZphEw6aRNisY5hk6ncmcgbEFnIg?from=from_copylink)
 - 尊重每一位参与者
 - 保持友好和建设性的讨论
 - 欢迎提问，也欢迎帮助他人
