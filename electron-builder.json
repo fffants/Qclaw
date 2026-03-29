@@ -57,6 +57,14 @@
     ],
     "artifactName": "Qclaw-Lite_${env.QCLAW_DISPLAY_VERSION}.${ext}"
   },
+  "linux": {
+    "target": [
+      "AppImage",
+      "deb"
+    ],
+    "artifactName": "Qclaw-Lite_${env.QCLAW_DISPLAY_VERSION}.${ext}",
+    "category": "Development"
+  },
   "nsis": {
     "oneClick": false,
     "perMachine": false,
