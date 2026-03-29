@@ -36,11 +36,11 @@ export interface OpenClawVersionEnforcementResult {
 }
 
 function normalizeVersionCore(value: string | null | undefined): string {
-  return String(value || '')
-    .trim()
-    .replace(/^v/i, '')
-    .split('-')[0]
-    .trim()
+  let core = String(value || '').trim()
+  core = core.replace(/^openclaw\s+/i, '')
+  core = core.replace(/^v/i, '')
+  core = core.split(/\s+/)[0]
+  return core.split('-')[0].trim()
 }
 
 function normalizePathSignature(value: string | null | undefined): string {
