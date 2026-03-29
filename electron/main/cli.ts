@@ -945,8 +945,10 @@ async function runShellOnce(
   const normalizedOptions = normalizeRunShellOptions(options)
   const controlDomain = normalizedOptions.controlDomain ?? 'global'
   const spawn = await getSpawnFn()
-  const useShell = normalizedOptions.shell === true
-  const resolvedCommand = useShell ? command : resolveCommandForShelllessSpawn(command)
+  const shelllessCommand = resolveCommandForShelllessSpawn(command)
+  const isWinCmd = process.platform === 'win32' && shelllessCommand.toLowerCase().endsWith('.cmd')
+  const useShell = normalizedOptions.shell === true || isWinCmd
+  const resolvedCommand = useShell ? command : shelllessCommand
   const runOnce = (env: NodeJS.ProcessEnv): Promise<CliResult> =>
     new Promise((resolve) => {
       const proc = spawn(resolvedCommand, args, {
