@@ -61,7 +61,7 @@
 - **功能面板** — 实时监控网关状态、一键重启、修复网关
 - **Skills管理** — 管理各个来源的skill
 - **数据备份** — 提供自动备份和手动备份
-- **多平台支持** — 支持 macOS、Windows（开发中），开箱即用
+- **多平台支持** — 全面支持 macOS、Windows、Linux 系统，开箱即用
 - **自动更新** — 支持OpenClaw最新版本
 
 ## 为什么会有这个项目
@@ -132,8 +132,14 @@ npm install
 # 启动开发环境
 npm run dev
 
-# 构建生产版本
-npm run build
+# 构建 macOS 生产包
+npm run package:mac
+
+# 构建 Windows 生产包 (.exe)
+npm run package:win
+
+# 构建 Linux 生产包 (AppImage / .deb)
+npm run package:linux
 ```
 
 ### 常用命令
@@ -141,7 +147,10 @@ npm run build
 | 命令 | 说明 |
 |------|------|
 | `npm run dev` | 启动开发服务器 |
-| `npm run build` | 构建并打包应用 |
+| `npm run build:app` | 构建前端及主进程代码 |
+| `npm run package:win` | 构建并打包 Windows 版本 |
+| `npm run package:linux` | 构建并打包 Linux 版本 |
+| `npm run package:mac` | 构建并打包 macOS 版本 |
 | `npm test` | 运行测试 |
 | `npm run typecheck` | TypeScript 类型检查 |
 
@@ -210,8 +219,8 @@ build/              应用图标与打包资源
 ## 支持环境
 
 - macOS 11 (Big Sur)+
-- Windows 10+（x64）(开发中)
-- Linux（计划中）
+- Windows 10+（x64 / ARM64）
+- Linux（Ubuntu, Debian, Fedora, 支持 AppImage 与 DEB 格式）
 
 ## 贡献指南
 欢迎每一个有想法、愿意动手的朋友参与到Qclaw的贡献中来！正是因为有你们，这个项目才能不断进步。
