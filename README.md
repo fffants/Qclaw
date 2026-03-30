@@ -123,7 +123,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/qiuzhi2046/Qclaw.git
+git clone https://github.com/fffants/Qclaw.git
 cd Qclaw
 
 # 安装依赖
@@ -136,7 +136,7 @@ npm run dev
 npm run package:mac
 
 # 构建 Windows 生产包 (.exe)
-npm run package:win
+npm run package:win 或 cmd.exe /c "npm run package:win"
 
 # 构建 Linux 生产包 (AppImage / .deb)
 npm run package:linux
