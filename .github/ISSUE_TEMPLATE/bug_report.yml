@@ -1,0 +1,74 @@
+name: Bug 反馈
+description: 报告一个 Bug
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你花时间提交 Bug 反馈！请尽量填写以下信息，帮助我们更快定位问题。
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug 描述
+      description: 简要描述遇到的问题
+      placeholder: 点击某个按钮后应用崩溃了...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 详细描述如何复现此问题
+      placeholder: |
+        1. 打开应用
+        2. 进入 '...'
+        3. 点击 '...'
+        4. 出现错误
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 你期望看到什么结果？
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 实际发生了什么？
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      options:
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 应用版本
+      description: 可在设置页面查看
+      placeholder: "2.2.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志或截图
+      description: 如有相关日志输出或截图，请粘贴在此处
+    validations:
+      required: false

@@ -1,0 +1,24 @@
+name: 问题咨询
+description: 使用中遇到的疑问或需要帮助
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        有任何使用上的疑问都可以在这里提问。
+
+  - type: textarea
+    id: question
+    attributes:
+      label: 问题描述
+      description: 详细描述你的问题
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 相关上���文
+      description: 操作系统、应用版本、截图或日志等有助于回答问题的信息
+    validations:
+      required: false

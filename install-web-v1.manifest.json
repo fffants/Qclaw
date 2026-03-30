@@ -1,0 +1,261 @@
+{
+  "bootstrap": {
+    "defaultInstallScriptUrl": "https://openclaw.ai/install.ps1",
+    "installScriptUrlEnv": "OPENCLAW_INSTALL_SCRIPT_URL",
+    "installScriptSha256Env": "OPENCLAW_INSTALL_SCRIPT_SHA256",
+    "downloadFileName": "openclaw-install.ps1",
+    "doctorArgs": ["doctor", "--fix"]
+  },
+  "discovery": {
+    "sharedExtraBinDirsEnv": "QCLAW_CLI_EXTRA_BIN_DIRS",
+    "nodeExtraBinDirsEnv": "QCLAW_NODE_EXTRA_BIN_DIRS",
+    "openclawExtraBinDirsEnv": "QCLAW_OPENCLAW_EXTRA_BIN_DIRS",
+    "npmPrefixEnvNames": ["npm_config_prefix", "NPM_CONFIG_PREFIX"],
+    "managerEnvNames": {
+      "nvmBin": "NVM_BIN",
+      "voltaHome": "VOLTA_HOME",
+      "fnmMultishellPath": "FNM_MULTISHELL_PATH",
+      "asdfDataDir": "ASDF_DATA_DIR",
+      "asdfDir": "ASDF_DIR",
+      "pnpmHome": "PNPM_HOME",
+      "miseShimsDir": "MISE_SHIMS_DIR",
+      "miseDataDir": "MISE_DATA_DIR",
+      "rtxBinHome": "RTX_BIN_HOME"
+    }
+  },
+  "wizard": {
+    "listenHost": "127.0.0.1",
+    "submitTimeoutMinutes": 15,
+    "pairingTimeoutMinutes": 30
+  },
+  "desktop": {
+    "devServer": {
+      "defaultUrl": "http://127.0.0.1:7777/"
+    },
+    "window": {
+      "defaultWidth": 800,
+      "defaultHeight": 600,
+      "minimumWidth": 640,
+      "minimumHeight": 480,
+      "backgroundColor": "#09090b",
+      "safeMargin": 32
+    },
+    "compatibility": {
+      "disableHardwareAccelerationWindowsReleasePrefixes": ["6.1"]
+    },
+    "loopbackHosts": [
+      "localhost",
+      "127.0.0.1",
+      "::1",
+      "0:0:0:0:0:0:0:1",
+      "::ffff:127.0.0.1"
+    ],
+    "externalOpen": {
+      "secureSchemes": ["https:"],
+      "loopbackHttpSchemes": ["http:"]
+    },
+    "oauth": {
+      "openaiCodex": {
+        "defaultCallbackUrl": "http://127.0.0.1:1455/auth/callback",
+        "callbackUrlEnv": "QCLAW_OPENAI_CALLBACK_URL",
+        "callbackPortEnv": "QCLAW_OPENAI_CALLBACK_PORT",
+        "probeHosts": ["127.0.0.1", "localhost"]
+      }
+    }
+  },
+  "gateway": {
+    "bind": "loopback",
+    "defaultPort": 18789,
+    "portEnv": "OPENCLAW_GATEWAY_PORT"
+  },
+  "channel": {
+    "id": "feishu",
+    "label": "飞书",
+    "pluginEnableId": "feishu",
+    "pluginPackage": "@openclaw/feishu",
+    "enabledConfigKey": "channels.feishu.enabled",
+    "appIdConfigKey": "channels.feishu.accounts.default.appId",
+    "appSecretConfigKey": "channels.feishu.accounts.default.appSecret",
+    "dmPolicyConfigKey": "channels.feishu.dmPolicy",
+    "allowFromConfigKey": "channels.feishu.allowFrom",
+    "pairingApproveArgs": ["pairing", "approve", "feishu"],
+    "defaultDmPolicy": "pairing",
+    "dmPolicyEnv": "OPENCLAW_FEISHU_DM_POLICY",
+    "dashboardUrlTemplate": "http://localhost:{port}",
+    "fieldLabels": {
+      "appId": "飞书 App ID",
+      "appSecret": "飞书 App Secret"
+    }
+  },
+  "providers": [
+    {
+      "id": "kimi-code",
+      "label": "Kimi Code（推荐）",
+      "aliases": ["", "1", "k", "kimi", "kimi-code", "kimicode"],
+      "authChoice": "kimi-code-api-key",
+      "keyFlag": "--kimi-code-api-key",
+      "apiKeyLabel": "Kimi Code API Key",
+      "links": [
+        {
+          "label": "Kimi/Moonshot API Key 页面",
+          "url": "https://platform.moonshot.cn/console/api-keys"
+        }
+      ]
+    },
+    {
+      "id": "moonshot",
+      "label": "Moonshot（月之暗面）",
+      "aliases": ["3", "moon", "moonshot"],
+      "authChoice": "moonshot-api-key",
+      "keyFlag": "--moonshot-api-key",
+      "apiKeyLabel": "Moonshot API Key",
+      "defaultSearchProvider": "kimi",
+      "links": [
+        {
+          "label": "Moonshot 官网",
+          "url": "https://platform.moonshot.cn"
+        },
+        {
+          "label": "Kimi/Moonshot API Key 页面",
+          "url": "https://platform.moonshot.cn/console/api-keys"
+        }
+      ]
+    },
+    {
+      "id": "minimax",
+      "label": "MiniMax",
+      "aliases": ["2", "m", "minimax"],
+      "authChoice": "minimax-api",
+      "keyFlag": "--minimax-api-key",
+      "apiKeyLabel": "MiniMax API Key",
+      "links": [
+        {
+          "label": "MiniMax 官网",
+          "url": "https://platform.minimaxi.com"
+        }
+      ]
+    },
+    {
+      "id": "zai",
+      "label": "GLM（Z.AI 自动）",
+      "aliases": ["4", "glm", "z.ai", "zai", "zai-api-key"],
+      "authChoice": "zai-api-key",
+      "keyFlag": "--zai-api-key",
+      "apiKeyLabel": "Z.AI API Key",
+      "links": [
+        {
+          "label": "Z.AI 官网",
+          "url": "https://platform.z.ai"
+        }
+      ]
+    },
+    {
+      "id": "zai-global",
+      "label": "Z.AI Global",
+      "aliases": ["zai-global"],
+      "authChoice": "zai-global",
+      "keyFlag": "--zai-api-key",
+      "apiKeyLabel": "Z.AI API Key",
+      "links": [
+        {
+          "label": "Z.AI 官网",
+          "url": "https://platform.z.ai"
+        }
+      ]
+    },
+    {
+      "id": "zai-cn",
+      "label": "Z.AI CN",
+      "aliases": ["zai-cn"],
+      "authChoice": "zai-cn",
+      "keyFlag": "--zai-api-key",
+      "apiKeyLabel": "Z.AI API Key",
+      "links": [
+        {
+          "label": "Z.AI 官网",
+          "url": "https://platform.z.ai"
+        }
+      ]
+    },
+    {
+      "id": "zai-coding-global",
+      "label": "GLM Coding（Global）",
+      "aliases": ["zai-coding-global"],
+      "authChoice": "zai-coding-global",
+      "keyFlag": "--zai-api-key",
+      "apiKeyLabel": "Z.AI API Key",
+      "links": [
+        {
+          "label": "Z.AI 官网",
+          "url": "https://platform.z.ai"
+        }
+      ]
+    },
+    {
+      "id": "zai-coding-cn",
+      "label": "GLM Coding（CN）",
+      "aliases": ["zai-coding-cn"],
+      "authChoice": "zai-coding-cn",
+      "keyFlag": "--zai-api-key",
+      "apiKeyLabel": "Z.AI API Key",
+      "links": [
+        {
+          "label": "Z.AI 官网",
+          "url": "https://platform.z.ai"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "web-search",
+      "label": "网页搜索",
+      "description": "启用内置网页搜索。",
+      "kind": "builtin"
+    },
+    {
+      "id": "autonomy",
+      "label": "自主执行",
+      "description": "启用内置自动化能力。",
+      "kind": "builtin",
+      "enableConfigKeys": [
+        "skills.entries.coding-agent.enabled",
+        "skills.entries.tmux.enabled",
+        "skills.entries.healthcheck.enabled",
+        "skills.entries.session-logs.enabled"
+      ]
+    },
+    {
+      "id": "summarize",
+      "label": "网页总结",
+      "description": "需要额外工具，Windows 将跳过安装。",
+      "kind": "external-tooling"
+    },
+    {
+      "id": "nano-pdf",
+      "label": "PDF 处理",
+      "description": "需要额外工具，Windows 将跳过安装。",
+      "kind": "external-tooling"
+    },
+    {
+      "id": "openai-whisper",
+      "label": "音频转文字",
+      "description": "需要额外工具，Windows 将跳过安装。",
+      "kind": "external-tooling"
+    },
+    {
+      "id": "github",
+      "label": "GitHub 能力",
+      "description": "需要额外工具，Windows 将跳过安装。",
+      "kind": "external-tooling"
+    }
+  ],
+  "webSearch": {
+    "providerEnv": "OPENCLAW_SEARCH_PROVIDER",
+    "apiKeyEnv": "OPENCLAW_SEARCH_API_KEY",
+    "enabledConfigKey": "tools.web.search.enabled",
+    "providerConfigKey": "tools.web.search.provider",
+    "braveApiKeyConfigKey": "tools.web.search.apiKey",
+    "kimiApiKeyConfigKey": "tools.web.search.kimi.apiKey"
+  }
+}

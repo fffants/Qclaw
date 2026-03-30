@@ -1,0 +1,94 @@
+import { describe, expect, it } from 'vitest'
+import {
+  buildNvmInstallCommand,
+  buildNvmNodeBinDir,
+  buildNvmUseCommand,
+  detectNvmDir,
+  listInstalledNvmNodeBinDirs,
+} from '../nvm-node-runtime'
+
+const TEST_ENV_BASE = {
+  APP_ROOT: '/tmp/qclaw-test-app-root',
+  VITE_PUBLIC: '/tmp/qclaw-test-public',
+} as NodeJS.ProcessEnv
+
+describe('listInstalledNvmNodeBinDirs', () => {
+  it('sorts installed nvm Node versions from newest to oldest', async () => {
+    const dirs = await listInstalledNvmNodeBinDirs('/Users/alice/.nvm', {
+      readdir: async () => [
+        { name: 'v22.22.1', isDirectory: () => true },
+        { name: 'alias', isDirectory: () => true },
+        { name: 'v24.14.0', isDirectory: () => true },
+        { name: 'v18.20.8', isDirectory: () => true },
+      ],
+    })
+
+    expect(dirs).toEqual([
+      '/Users/alice/.nvm/versions/node/v24.14.0/bin',
+      '/Users/alice/.nvm/versions/node/v22.22.1/bin',
+      '/Users/alice/.nvm/versions/node/v18.20.8/bin',
+    ])
+  })
+})
+
+describe('buildNvmInstallCommand', () => {
+  it('installs and uses the requested version without mutating the default alias', () => {
+    const command = buildNvmInstallCommand('/Users/alice/.nvm', 'v22.22.1')
+
+    expect(command).toContain("source '/Users/alice/.nvm/nvm.sh'")
+    expect(command).toContain("nvm install '22.22.1'")
+    expect(command).toContain("nvm use '22.22.1'")
+    expect(command).not.toContain('alias default')
+  })
+})
+
+describe('buildNvmUseCommand', () => {
+  it('activates an explicit version instead of relying on default alias', () => {
+    const command = buildNvmUseCommand('/Users/alice/.nvm', '24.14.0')
+
+    expect(command).toContain("nvm use '24.14.0'")
+    expect(command).not.toContain('default')
+  })
+})
+
+describe('buildNvmNodeBinDir', () => {
+  it('normalizes versions to the nvm directory layout', () => {
+    expect(buildNvmNodeBinDir('/Users/alice/.nvm', '24.14.0')).toBe(
+      '/Users/alice/.nvm/versions/node/v24.14.0/bin'
+    )
+  })
+})
+
+describe('detectNvmDir', () => {
+  it('prefers NVM_DIR from the environment', async () => {
+    await expect(
+      detectNvmDir({
+        env: {
+          ...TEST_ENV_BASE,
+          NVM_DIR: '/Users/alice/.nvm',
+        },
+      })
+    ).resolves.toBe('/Users/alice/.nvm')
+  })
+
+  it('derives the root from NVM_BIN when NVM_DIR is missing', async () => {
+    await expect(
+      detectNvmDir({
+        env: {
+          ...TEST_ENV_BASE,
+          NVM_BIN: '/Users/alice/.nvm/versions/node/v24.14.0/bin',
+        },
+      })
+    ).resolves.toBe('/Users/alice/.nvm')
+  })
+
+  it('falls back to ~/.nvm when nvm.sh exists', async () => {
+    await expect(
+      detectNvmDir({
+        env: TEST_ENV_BASE,
+        homedir: () => '/Users/alice',
+        access: async () => undefined,
+      })
+    ).resolves.toBe('/Users/alice/.nvm')
+  })
+})

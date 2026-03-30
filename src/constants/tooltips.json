@@ -1,0 +1,116 @@
+{
+  "common": {
+    "refresh": "重新拉取当前数据并更新页面状态。",
+    "refreshing": "正在刷新，请稍候。",
+    "delete": "删除当前项，请谨慎操作。",
+    "openDirectory": "打开对应目录，便于查看或管理本地文件。",
+    "backupBeforeAction": "执行前先创建备份，避免误操作导致数据丢失。"
+  },
+  "layout": {
+    "navigation": {
+      "dashboard": "查看系统总览、运行状态和关键入口。",
+      "dashboardExplain": "这里可以查看 OpenClaw 的状态，执行重启、修复等常用操作。",
+      "chat": "进入对话页面，发起和管理会话。",
+      "chatExplain": "这里可以给 OpenClaw 发送消息。",
+      "channels": "配置 IM 渠道接入、机器人和消息通道。",
+      "channelsExplain": "这里可以管理飞书、企微等即时通讯消息渠道。",
+      "models": "管理模型服务商、模型列表和 API 连接。",
+      "modelsExplain": "这里可以管理日常使用的大模型接口。",
+      "skills": "查看、安装和管理可用 Skills。",
+      "skillsExplain": "可以把 Skill 理解为给 Agent 的一份“说明书”，Agent 会按这份说明调用工具并执行操作。",
+      "settings": "打开全局设置、偏好项和运行配置。"
+    }
+  },
+  "dashboard": {
+    "refreshModelCatalog": "重新扫描并同步当前模型目录。",
+    "startGateway": "启动网关服务，让模型和渠道开始可用。",
+    "restartGateway": "重启网关，让最新配置重新生效。",
+    "forceRestartGateway": "强制重启网关，适合卡住或无响应时使用。",
+    "selfRepair": "自动检查常见问题，并尝试恢复网关运行。",
+    "repairPluginEnvironment": "自动检查并处理损坏或冲突的插件。",
+    "openDeveloperPanel": "打开 OpenClaw 的开发者页面，用于查看和调试运行状态。",
+    "openWorkspaceFolder": "打开本地工作区文件夹，方便查看配置和日志文件。",
+    "catalogModeAvailable": "仅显示当前可直接使用的模型。",
+    "catalogModeAll": "显示所有已发现模型，包括暂不可用项。"
+  },
+  "dashboardChatPanel": {
+    "toggleTheme": {
+      "toLight": "切换到亮色主题。",
+      "toDark": "切换到暗色主题。"
+    },
+    "refreshSession": "重新加载当前会话列表和会话内容。",
+    "history": {
+      "show": "展开历史会话列表。",
+      "hide": "收起历史会话列表。"
+    },
+    "diagnostics": {
+      "show": "查看当前会话的诊断信息。",
+      "hide": "收起会话诊断信息。"
+    },
+    "newConversation": "新建一个空白对话。",
+    "retryLastMessage": "基于上一条输入重新发起请求。",
+    "clearLocalHistory": "清空当前会话的本地历史记录。"
+  },
+  "modelsPage": {
+    "refresh": {
+      "idle": "刷新模型列表和服务商状态。",
+      "loading": "模型目录正在刷新中。"
+    },
+    "removeProvider": "删除当前服务商及其相关配置。"
+  },
+  "modelCenter": {
+    "refreshCapabilities": "重新检测模型能力与可用特性。",
+    "providerHint": "选择要配置的服务商类型。",
+    "authTokenHint": "填写用于访问该服务商的授权凭证。"
+  },
+  "skillsPage": {
+    "overview": "Skill 可以简单理解为给 Agent 的一份“说明书”，Agent 会按这份说明调用工具并执行操作。",
+    "refresh": "刷新 Skills 列表和安装状态。",
+    "searchMode": {
+      "switchToClawHub": "切换到 ClawHub 搜索在线 Skills。",
+      "switchToLocal": "切换到本地搜索已安装 Skills。"
+    },
+    "deleteSkill": "卸载当前 Skill。",
+    "sources": {
+      "extra": "这类 Skills 一般来自飞书、企微等插件",
+      "bundled": "这类 Skills 随 OpenClaw 一起安装。",
+      "workspace": "这类 Skills 只在当前工作区生效，适合放项目专用能力。"
+    }
+  },
+  "settingsPage": {
+    "updateCenter": "打开升级中心，查看并处理可用更新。",
+    "backupCenter": "打开备份中心，查看或创建本地备份。",
+    "feishuBotManager": "打开飞书 Bot 管理，配置和维护飞书机器人。",
+    "reconfigure": "重新进入配置引导，按步骤配置模型和IM渠道。",
+    "toggleThemeToLight": "当前为暗色模式，点击切换到亮色模式。",
+    "toggleThemeToDark": "当前为亮色模式，点击切换到暗色模式。",
+    "enableGlobalTooltip": "当前已关闭全局悬浮提示，点击后重新开启所有 Tooltip 提示。",
+    "disableGlobalTooltip": "当前已开启全局悬浮提示，点击后关闭所有 Tooltip 提示。",
+    "deleteOpenClawAndData": "删除OpenClaw及数据",
+    "cleanupOpenClaw": "删除当前 OpenClaw 安装和相关环境，请谨慎操作。",
+    "cleanupOpenClawData": "清理 OpenClaw 的本地数据和配置，清理后通常无法恢复。"
+  },
+  "backupCenter": {
+    "rootDirectory": "显示当前备份根目录位置。",
+    "openDirectory": "打开备份目录。",
+    "refreshList": "重新读取备份列表。"
+  },
+  "updateCenter": {
+    "refreshStatus": "重新检查更新状态和版本信息。"
+  },
+  "feishuBotManager": {
+    "refreshList": "重新加载飞书 Bot 列表和运行状态。"
+  },
+  "cleanup": {
+    "backupBeforeCleanup": "清理前额外创建一次备份，便于后续恢复。"
+  },
+  "envCheck": {
+    "repairPluginEnvironment": "自动检查并处理损坏或冲突的插件。",
+    "nodeRuntime": "这是整个OpenClaw运行的基础环境。",
+    "openClawCli": "这是OpenClaw的核心命令行工具。",
+    "gatewayService": "这是OpenClaw的后台网关服务。"
+  },
+  "welcome": {
+    "acknowledgeNotice": "确认已阅读并了解当前页面提示内容。"
+  }
+}
