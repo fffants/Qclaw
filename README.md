@@ -79,7 +79,7 @@
 
 - 下载并打开 Qclaw Lite 客户端
   - 官网：https://qclawai.com/
-  - GitHub Release：[下载最新版本](https://github.com/qiuzhi2046/Qclaw/releases)
+  - GitHub Release：[下载最新版本](https://github.com/fffants/Qclaw/releases)
 - 阅读安全提醒内容并确认继续
 
 ### Step 2：环境准备
